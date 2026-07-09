@@ -238,7 +238,7 @@ Antes de tratar dados espaciais, precisamos entender **como o espaço é represe
 ]
 
 .pull-right[
-![:scale 90%](img/cartografia/pensamento_espacial.png)
+![:scale 90%](../img/cartografia/pensamento_espacial.png)
 
 **Perguntas espaciais típicas:**
 - O que existe em uma determinada localização?
@@ -259,8 +259,8 @@ Antes de tratar dados espaciais, precisamos entender **como o espaço é represe
 ]
 
 .pull-right[
-![:scale 75%](img/cartografia/gravidade_terra.png)
-![:scale 55%](img/cartografia/geoide.png)
+![:scale 75%](../img/cartografia/gravidade_terra.png)
+![:scale 55%](../img/cartografia/geoide.png)
 ]
 
 ---
@@ -282,8 +282,8 @@ Cada país (ou grupo de países) adota o elipsoide de referência que melhor se 
 ]
 
 .pull-right[
-![:scale 100%](img/cartografia/elipsoi_1.png)
-![:scale 100%](img/cartografia/elipsoide_2.png)
+![:scale 100%](../img/cartografia/elipsoi_1.png)
+![:scale 100%](../img/cartografia/elipsoide_2.png)
 ]
 
 ---
@@ -302,7 +302,7 @@ A posição desse elipsoide em relação à Terra, sua forma e tamanho constitue
 ]
 
 .pull-right[
-![:scale 80%](img/cartografia/datum.png)
+![:scale 80%](../img/cartografia/datum.png)
 ]
 
 ---
@@ -310,11 +310,11 @@ A posição desse elipsoide em relação à Terra, sua forma e tamanho constitue
 ## Datum Geocêntrico × Topocêntrico
 
 .pull-left[
-![:scale 100%](img/cartografia/geoide_geocentrico.png)
+![:scale 100%](../img/cartografia/geoide_geocentrico.png)
 ]
 
 .pull-right[
-![:scale 100%](img/cartografia/geoide_topocentrico.png)
+![:scale 100%](../img/cartografia/geoide_topocentrico.png)
 ]
 
 .tip[
@@ -332,7 +332,7 @@ Necessários para expressar a posição de pontos sobre uma superfície curvilí
 ]
 
 .pull-left[
-![:scale 90%](img/cartografia/graus.png)
+![:scale 90%](../img/cartografia/graus.png)
 ]
 
 .pull-right[
@@ -356,7 +356,7 @@ Distância angular entre o lugar e o meridiano de origem, contada sobre um plano
 ]
 
 .pull-right[
-![:scale 90%](img/cartografia/lat_long.png)
+![:scale 90%](../img/cartografia/lat_long.png)
 ]
 
 ---
@@ -370,7 +370,7 @@ Para confeccionar um mapa, cada ponto da superfície terrestre precisa correspon
 A projeção cartográfica transforma uma posição na Terra (latitude/longitude) em uma posição em coordenadas cartesianas/planas (x, y).
 
 .pull-left[
-![:scale 70%](img/cartografia/projecao.png)
+![:scale 70%](../img/cartografia/projecao.png)
 ]
 
 .pull-right[
@@ -384,8 +384,8 @@ Coordenadas planas servem para representar **pequenas porções** da superfície
 ## Toda Projeção Deforma Algo
 
 .pull-left[
-![:scale 100%](img/cartografia/laranja1.png)
-![:scale 100%](img/cartografia/laranja2.png)
+![:scale 100%](../img/cartografia/laranja1.png)
+![:scale 100%](../img/cartografia/laranja2.png)
 ]
 
 .pull-right[
@@ -395,7 +395,7 @@ Representar uma superfície curva (a Terra) em um plano sempre envolve deformaç
 **Não existe projeção ideal.** Toda projeção sacrifica alguma propriedade — ângulo, área ou distância.
 ]
 
-![:scale 90%](img/cartografia/erro_proj1.png)
+![:scale 90%](../img/cartografia/erro_proj1.png)
 ]
 
 ---
@@ -409,7 +409,7 @@ Representar uma superfície curva (a Terra) em um plano sempre envolve deformaç
 | **Equivalente** | Áreas | Formas |
 | **Afilática** | Nenhuma propriedade — busca reduzir distorções em geral | — |
 
-![:scale 45%](img/cartografia/proj.jpg)
+![:scale 45%](../img/cartografia/proj.jpg)
 
 ---
 
@@ -427,10 +427,10 @@ Representar uma superfície curva (a Terra) em um plano sempre envolve deformaç
 **Quanto ao tipo de contato:**
 
 Tangente
-![:scale 90%](img/cartografia/planotangente.png)
+![:scale 90%](../img/cartografia/planotangente.png)
 
 Secante
-![:scale 90%](img/cartografia/planosecante.png)
+![:scale 90%](../img/cartografia/planosecante.png)
 ]
 
 ---
@@ -442,7 +442,7 @@ Secante
 ]
 
 .pull-left[
-![:scale 90%](img/cartografia/mercartor.png)
+![:scale 90%](../img/cartografia/mercartor.png)
 ]
 
 .pull-right[
@@ -458,20 +458,20 @@ Secante
 ## Projeção UTM — Fusos
 
 .pull-left[
-![:scale 100%](img/cartografia/utm.png)
-![:scale 100%](img/cartografia/utm_br.png)
+![:scale 100%](../img/cartografia/utm.png)
+![:scale 100%](../img/cartografia/utm_br.png)
 ]
 
 .pull-right[
-![:scale 100%](img/cartografia/utm1.png)
-![:scale 100%](img/cartografia/utm2.png)
+![:scale 100%](../img/cartografia/utm1.png)
+![:scale 100%](../img/cartografia/utm2.png)
 ]
 
 ---
 
 ## Projeção UTM — Exemplo de Sobreposição de Fusos
 
-![:scale 55%](img/cartografia/utm5.png)
+![:scale 55%](../img/cartografia/utm5.png)
 
 ---
 
@@ -527,7 +527,7 @@ Secante
 Dados espaciais podem apresentar diferentes formatos e estruturas. Neste curso, usamos principalmente o formato **shapefile** (ESRI) para dados vetoriais.
 ]
 
-![:scale 70%](img/cartografia/vector-vs-raster.png)
+![:scale 70%](../img/cartografia/vector-vs-raster.png)
 
 ---
 

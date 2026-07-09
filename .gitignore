@@ -3,6 +3,9 @@
 .RData
 .Ruserdata
 *.html
+!slides/index.html
 *_cache/
 *_files/
+!slides/index_files/
+!slides/index_files/**
 .DS_Store

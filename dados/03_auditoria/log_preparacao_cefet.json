@@ -1,0 +1,13 @@
+{
+  "etapa": "Preparação da referência espacial do Campus Nova Gameleira",
+  "executado_em": "2026-07-29",
+  "entrada": "dados/01_originais/nominatim_cefet_campus_nova_gameleira.json",
+  "sha256_entrada": "4a98c5807c046d747cb426064b01185d8e59be34090ab0104786c09eb4aa0312",
+  "registros_entrada": 1,
+  "saida": "dados/02_processados/cefet_campus_nova_gameleira.geojson",
+  "feicoes_saida": 1,
+  "geometria": "Point",
+  "crs": "EPSG:4326",
+  "formula": "Point(lon, lat) usando as coordenadas retornadas pelo Nominatim",
+  "limitacao": "O ponto não representa o perímetro do campus."
+}

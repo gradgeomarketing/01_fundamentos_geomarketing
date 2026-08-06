@@ -1,0 +1,23 @@
+[
+  {
+    "place_id": 419761320,
+    "licence": "Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright",
+    "osm_type": "way",
+    "osm_id": 29029877,
+    "lat": "-19.9391867",
+    "lon": "-43.9992587",
+    "category": "amenity",
+    "type": "college",
+    "place_rank": 30,
+    "importance": 0.00007253452353699576,
+    "addresstype": "amenity",
+    "name": "CEFET-MG - Campus Nova Gameleira",
+    "display_name": "CEFET-MG - Campus Nova Gameleira, 7675, Avenida Amazonas, Nova Gameleira, Regional Oeste, Belo Horizonte, Minas Gerais, Região Sudeste, 30510-000, Brasil",
+    "boundingbox": [
+      "-19.9403017",
+      "-19.9381231",
+      "-44.0007162",
+      "-43.9979481"
+    ]
+  }
+]

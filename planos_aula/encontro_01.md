@@ -1,120 +1,198 @@
-# Plano de Aula — Encontro 1
-**Unidade:** 1 – Fundamentos de Geomarketing  
-**Carga horária:** 4h/aula (200 min úteis)  
-**Data prevista:** Semana 1 — Agosto 2026
+# Plano de aula — Encontro 1
 
----
+**Unidade:** 1 — Fundamentos de Geomarketing  
+**Carga horária:** 4 horas-aula, equivalentes a 200 minutos  
+**Período previsto:** agosto de 2026  
+**Plataforma prática:** QGIS 3.44 LTR
 
-## Objetivos do Encontro
-1. Compreender o conceito e a evolução histórica do geomarketing.
-2. Identificar a relação do geomarketing com marketing, geografia, estatística e SIG.
-3. Reconhecer aplicações práticas em diferentes setores.
-4. Compreender fundamentos de cartografia: geoide/elipsoide, datum, sistemas de coordenadas geográficas e projeções cartográficas.
-5. Realizar primeira exploração de dados e ferramentas no QGIS.
+## Questão orientadora
 
----
+Por que estabelecimentos da mesma rede, com produtos semelhantes, podem
+apresentar desempenhos diferentes em pontos distintos da cidade?
 
-## Programação Detalhada
+## Objetivos de aprendizagem
 
-| Horário | Duração | Atividade | Tipo |
-|---------|---------|-----------|------|
-| 0:00 | 10 min | Apresentação da disciplina: ementa, avaliação, ferramentas | Expositivo |
-| 0:10 | 15 min | O que é geomarketing? Conceito e evolução histórica | Expositivo dialogado |
-| 0:25 | 10 min | **Questão disparadora:** "Por que dois supermercados da mesma rede têm resultados tão diferentes?" | Discussão em plenário |
-| 0:35 | 15 min | Relação geomarketing × marketing × geografia × estatística × SIG | Expositivo com slides |
-| 0:50 | 10 min | **Pausa** | — |
-| 1:00 | 15 min | Aplicações em varejo, setor público e organizações sociais | Expositivo + cases |
-| 1:15 | 40 min | **Fundamentos de cartografia:** pensamento espacial, geoide/elipsoide, datum, coordenadas geográficas, projeções (tipos e classificação), UTM, SIG, vetor×raster, shapefile, distâncias e tipos de representação cartográfica | Expositivo com slides |
-| 1:55 | 20 min | Introdução ao QGIS: instalação, interface e abertura de shapefile | Demonstração ao vivo |
-| 2:15 | 10 min | **Pausa** | — |
-| 2:25 | 50 min | **Atividade prática:** "Mapeando o entorno do CEFET" (grupos de 3–4) | Prática em sala |
-| 3:15 | 15 min | Apresentação dos resultados por grupo | Socialização |
-| 3:30 | 10 min | Resolução comentada + discussão de padrões encontrados | Plenário |
-| 3:40 | 10 min | Conceitos-chave + orientações para próximo encontro | Síntese |
-| 3:50 | 10 min | Dúvidas e encerramento | — |
+Ao final do encontro, o estudante deverá ser capaz de:
 
----
+1. explicar geomarketing como integração entre decisões de marketing e
+   inteligência geográfica;
+2. formular perguntas espaciais aplicadas a mercados;
+3. reconhecer aplicações em empresas, setor público e organizações sociais;
+4. distinguir datum, coordenadas geográficas e coordenadas projetadas em nível
+   introdutório;
+5. criar e salvar um projeto QGIS com caminhos relativos;
+6. consultar dados do OpenStreetMap no QGIS e produzir um mapa exploratório;
+7. distinguir achado cartográfico, hipótese explicativa e conclusão.
 
-## Fundamentos de Cartografia — Detalhamento (40 min)
+## Evidências de aprendizagem
 
-**Roteiro expositivo (slides "Fundamentos de Cartografia e Representação Geográfica"), com figuras ilustrativas em `img/cartografia/`:**
+- participação na questão orientadora;
+- projeto QGIS que reabre sem caminhos quebrados;
+- mapa com elementos cartográficos básicos e atribuição;
+- respostas da Atividade 01;
+- bilhete individual de saída.
 
-1. **Pensamento espacial** (3 min) — 1ª Lei da Geografia de Tobler; encontrar significado em forma, tamanho, localização e trajetória de fenômenos.
-2. **Geoide × Elipsoide de revolução** (5 min) — o geoide é a forma real (irregular) da Terra; o elipsoide é o modelo matemático usado como aproximação (parâmetros `a`, `b`, `f`), escolhido por país/região.
-3. **Sistemas geodésicos e datum** (5 min) — o datum ancora o elipsoide à Terra real (vertical/altimétrico × horizontal/planimétrico); geocêntrico (**SIRGAS 2000**, EPSG:4674 — padrão do Brasil, usado em todo o curso) × topocêntrico (SAD-69).
-4. **Coordenadas geográficas** (5 min) — meridianos e paralelos; latitude (distância angular ao Equador) e longitude (distância angular a Greenwich); diferença entre coordenadas geográficas (graus) e projetadas (metros).
-5. **Projeções cartográficas** (8 min) — toda projeção deforma algo; não existe projeção ideal. Quatro famílias (conforme, equidistante, equivalente, afilática) e duas classificações (superfície de projeção; tipo de contato tangente/secante).
-6. **Projeção UTM** (5 min) — 60 fusos de 6°; unidade em metros; fusos do Brasil (18–25); Belo Horizonte está no **Fuso 23**.
-7. **O que é um SIG + por que cartografia digital** (4 min) — definições de Burrough, Cowen e Smith; vantagens práticas de mapear digitalmente.
-8. **Vetor × Raster e estrutura do shapefile** (3 min) — formatos de dado espacial; extensões `.shp/.shx/.dbf/.prj` e por que shapefile é um conjunto de arquivos.
-9. **Distâncias** (2 min) — euclidiana, Manhattan e em rede (prévia da Unidade 7).
-10. **Tipos de representação cartográfica** (não contabilizado acima, ver Programação Detalhada) — coroplético, pontos, símbolos proporcionais, mapa de calor, fluxos, cartograma — com prévia de que serão praticados nas Unidades 4 e 6.
+## Preparação docente
 
-**Conexão com o restante do curso:** este bloco é a base conceitual que sustenta decisões práticas nas próximas unidades — verificação de SRC/datum e estrutura vetorial na Unidade 4, distâncias em rede na Unidade 7, e escolha do tipo de representação cartográfica na Unidade 6.
+1. Executar `scripts/01_preparar_referencia_cefet.py`.
+2. Conferir `dados/03_auditoria/amostra_cefet_campus.csv`.
+3. Testar a consulta QuickOSM em um perfil limpo do QGIS.
+4. Renderizar e abrir `slides/index.html`.
+5. Revisar `avaliacao/checklist_pre_aula.md`.
+6. Manter `atividades_em_sala/atividade_01_gabarito_docente.md` restrito.
 
-**Fonte:** OLIVEIRA, R. *Geocomputing e Análise Espacial*, [places.education/cursos/spatial/localizacao](https://www.places.education/cursos/spatial/localizacao/). Figuras reproduzidas do mesmo material, salvas em `img/cartografia/`.
+## Programação — 200 minutos
 
----
+| Intervalo | Duração | Atividade | Estratégia |
+|---|---:|---|---|
+| 0:00–0:10 | 10 min | Acolhimento, propósito da disciplina e projeto integrador | Exposição breve |
+| 0:10–0:25 | 15 min | Questão orientadora: desempenho desigual de unidades semelhantes | Discussão em duplas e plenário |
+| 0:25–0:45 | 20 min | Conceito de geomarketing e disciplinas que o sustentam | Exposição dialogada |
+| 0:45–1:05 | 20 min | Aplicações e caso de expansão de uma rede de farmácias | Estudo de caso |
+| 1:05–1:15 | 10 min | Pausa | — |
+| 1:15–1:50 | 35 min | Pensamento espacial e fundamentos cartográficos essenciais | Exposição com perguntas |
+| 1:50–2:10 | 20 min | QGIS: interface, projeto, camadas, atributos e SRC | Demonstração |
+| 2:10–2:20 | 10 min | Pausa | — |
+| 2:20–3:00 | 40 min | Atividade “Mapeando o entorno do CEFET” | Prática em grupos |
+| 3:00–3:15 | 15 min | Socialização de achados, divergências e limitações | Plenário |
+| 3:15–3:20 | 5 min | Bilhete individual de saída e encerramento | Avaliação formativa |
 
-## Atividade Prática — Detalhamento
+## Desenvolvimento
 
-**Nome:** "Mapeando o entorno do CEFET"  
-**Duração:** 50 min  
-**Grupos:** 3–4 estudantes
+### 1. Questão orientadora
 
-### Roteiro
-1. Acessar [overpass-turbo.eu](https://overpass-turbo.eu)
-2. Executar a seguinte query para extrair farmácias em BH:
-```
-[out:json][timeout:25];
-area["name"="Belo Horizonte"]->.bh;
-node["amenity"="pharmacy"](area.bh);
-out body;
-```
-3. Exportar resultado como **GeoJSON**
-4. Abrir no QGIS: Camada → Adicionar → Adicionar Camada Vetorial
-5. Responder:
-   - Qual bairro/região concentra mais farmácias?
-   - Há áreas sem cobertura visível?
-   - O que pode explicar a distribuição observada?
+Apresente duas unidades hipotéticas de uma mesma rede com desempenho desigual.
+Solicite que as duplas proponham explicações. Organize as respostas em quatro
+famílias:
 
-### Entregável
-Print do mapa + 3 bullet points com observações.
+- características do mercado;
+- acessibilidade e fluxos;
+- concorrência e complementaridade;
+- características internas da operação.
 
----
+Conclua destacando que geomarketing não substitui marketing ou finanças: ele
+torna explícita a dimensão territorial do problema.
 
-## Resolução da Atividade
+### 2. Fundamentos de geomarketing
 
-**Padrão esperado:**
-- Alta concentração no Centro, Savassi, Funcionários (renda + fluxo)
-- Menor densidade em Venda Nova, Barreiro, Ribeirão das Neves
-- Clusters próximos a hospitais e UPAs
+Trabalhe:
 
-**Pontos para discussão:**
-- Dados do OSM são completos para BH? (estimativa: ~70-80% de cobertura)
-- Diferença entre ausência real de farmácias vs. ausência de dado
-- Como renda e infraestrutura explicam o padrão?
+- espaço como variável estratégica;
+- diferença entre “onde estão os clientes?” e “por que estão ali?”;
+- escalas de análise;
+- integração entre marketing, geografia, estatística e SIG;
+- aplicações em localização, cobertura, expansão, logística e políticas
+  públicas.
 
----
+Evite apresentar o primeiro mapa como resposta final. O objetivo é formular um
+problema que será enriquecido ao longo das unidades seguintes.
 
-## Recursos Necessários
+### 3. Fundamentos cartográficos essenciais
 
-- [ ] Projetor e tela
-- [ ] Computadores com QGIS instalado (ou levar pendrive com instalador)
-- [ ] Acesso à internet para Overpass API
-- [ ] Slides do encontro (`index.Rmd` renderizado como HTML)
+Esta é uma introdução; o aprofundamento operacional ocorrerá na Unidade 4.
 
----
+1. **Pensamento espacial:** localização, distância, direção, distribuição,
+   associação e escala.
+2. **Forma da Terra:** geoide como referência física e elipsoide como modelo
+   matemático.
+3. **Datum/SRC:** o sistema de referência permite interpretar coordenadas.
+4. **Coordenadas geográficas:** latitude e longitude em graus.
+5. **Coordenadas projetadas:** plano cartesiano, frequentemente em metros.
+6. **Aplicação local:** SIRGAS 2000 geográfico — EPSG:4674 — e SIRGAS 2000 /
+   UTM zona 23S — EPSG:31983 — para análises métricas em Belo Horizonte.
+7. **Regra prática:** definir SRC não é o mesmo que reprojetar uma camada.
 
-## Avaliação e Acompanhamento
+### 4. Demonstração do QGIS
 
-**Participação esperada:** discussão ativa na questão disparadora e na socialização da prática.  
-**Indicador de compreensão:** estudante consegue nomear pelo menos 3 aplicações setoriais do geomarketing.
+Mostre apenas os componentes necessários à atividade:
 
----
+- painel Navegador;
+- painel Camadas;
+- mapa e barra de status;
+- tabela de atributos;
+- SRC do projeto;
+- salvamento do projeto;
+- diferença entre camada temporária e persistida.
 
-## Para o Próximo Encontro (Encontro 2)
+Abra a camada do campus e explique que um ponto de referência não representa o
+perímetro institucional.
 
-- Instalar QGIS 3.x LTR ([qgis.org](https://qgis.org))
-- Instalar os plugins QGIS do módulo via *Complementos → Gerenciar e Instalar Complementos*: **QuickOSM**, **MMQGIS**, **ORS Tools**
-- Leitura: OLIVEIRA, P.H.P. Cap. 1–2.
+### 5. Prática
+
+Use:
+
+- `praticas_qgis/01_primeiro_mapa_osm.md`;
+- `atividades_em_sala/atividade_01_mapeando_entorno_cefet.md`;
+- `avaliacao/rubrica_encontro_01.md`.
+
+Durante a prática, registre no quadro três colunas:
+
+| Observamos | Podemos levantar como hipótese | Ainda não podemos concluir |
+|---|---|---|
+| Feições e vazios no recorte | Relação com vias, fluxos ou centralidades | Demanda, saturação ou viabilidade econômica |
+
+## Resolução e mediação
+
+Não há contagem fixa de farmácias: o resultado depende da data, do recorte e do
+estado do OpenStreetMap. A correção deve confrontar as respostas com as
+tabelas de atributos produzidas por cada grupo.
+
+Valorize grupos que:
+
+- informam o recorte utilizado;
+- reconhecem pontos e polígonos retornados;
+- evitam dupla contagem;
+- apresentam explicações concorrentes;
+- pedem dados adicionais antes de recomendar localização.
+
+Intervenha quando houver:
+
+- inferência causal baseada apenas em proximidade visual;
+- uso de distância em graus como se fosse metro;
+- ausência de atribuição ao OSM;
+- afirmação de que área sem feição não possui farmácia.
+
+## Recursos
+
+- computador e projetor;
+- QGIS 3.44 LTR;
+- plugin QuickOSM;
+- internet;
+- slides renderizados;
+- camada de referência do Campus Nova Gameleira;
+- roteiro prático e atividade discente.
+
+## Limitações e contingência
+
+- A API Overpass pode ficar indisponível ou limitar consultas.
+- O OSM é colaborativo e pode apresentar omissões ou classificações
+  inconsistentes.
+- O mapa-base não constitui cadastro completo de empresas.
+- Se a consulta falhar, realizar a leitura do mapa-base e registrar a falha,
+  sem substituir o resultado por contagens presumidas.
+
+## Articulação com as demais unidades
+
+- Unidade 2: espaço, centralidade, consumo e acessibilidade.
+- Unidade 3: fontes, qualidade, escala e limitações dos dados.
+- Unidade 4: estruturas espaciais, SRC e operações essenciais.
+- Unidade 5: geocodificação e preparação de endereços.
+- Unidade 6: cartografia temática e comunicação visual.
+- Unidade 7: distância, cobertura e áreas de influência.
+- Unidade 8: indicadores, segmentação e potencial de mercado.
+
+## Para o próximo encontro
+
+- Manter o projeto `encontro_01.qgz`.
+- Registrar uma pergunta territorial que o grupo deseja investigar.
+- Ler a introdução indicada no ambiente da disciplina.
+- Não é necessário instalar MMQGIS ou ORS Tools nesta etapa; esses plugins serão
+  introduzidos quando suas funções forem utilizadas.
+
+## Referências operacionais
+
+- QGIS Project. *QGIS 3.44 User Guide*.
+- QuickOSM. *End User Guide*.
+- OpenStreetMap Foundation. *Copyright and License*.
+- CEFET-MG. Endereço do Campus Nova Gameleira.
+

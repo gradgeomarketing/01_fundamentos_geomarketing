@@ -1,0 +1,2 @@
+nome,endereco,bairro,municipio,lat,lon,osm_type,osm_id,fonte,consulta_em
+CEFET-MG - Campus Nova Gameleira,"Avenida Amazonas, 7675",Nova Gameleira,Belo Horizonte,-19.9391867,-43.9992587,way,29029877,Nominatim / OpenStreetMap,2026-07-29

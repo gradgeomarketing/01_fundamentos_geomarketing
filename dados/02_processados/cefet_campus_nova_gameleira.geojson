@@ -1,0 +1,25 @@
+{
+  "type": "FeatureCollection",
+  "name": "cefet_campus_nova_gameleira",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nome": "CEFET-MG - Campus Nova Gameleira",
+        "endereco": "Avenida Amazonas, 7675",
+        "bairro": "Nova Gameleira",
+        "municipio": "Belo Horizonte",
+        "lat": -19.9391867,
+        "lon": -43.9992587,
+        "osm_type": "way",
+        "osm_id": 29029877,
+        "fonte": "Nominatim / OpenStreetMap",
+        "consulta_em": "2026-07-29"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-43.9992587, -19.9391867]
+      }
+    }
+  ]
+}

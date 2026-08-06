@@ -1,0 +1,67 @@
+/* Shared presentation rules for the active Geomarketing units. */
+.remark-slide-content:after {
+  background-image: none !important;
+  content: none !important;
+  display: none !important;
+}
+
+.remark-slide-content.compact,
+.remark-slide-content.dense {
+  font-size: 30px !important;
+}
+
+.remark-slide-content.compact .large {
+  font-size: 115% !important;
+}
+
+.remark-slide-content.dense .large {
+  font-size: 110% !important;
+}
+
+.remark-slide-content .midi,
+.remark-slide-content .small,
+.remark-slide-content .xsmall,
+.remark-slide-content .tiny,
+.remark-slide-content small,
+.remark-slide-content pre code,
+.remark-slide-content .remark-code,
+.remark-slide-content .remark-inline-code,
+.remark-slide-content .footnote,
+.remark-slide-content .my-footer span,
+.remark-slide-content .my-footer a,
+.remark-slide-content.compact table,
+.remark-slide-content.dense table {
+  font-size: 30px !important;
+}
+
+.remark-slide-content.compact p,
+.remark-slide-content.compact ul,
+.remark-slide-content.compact ol {
+  margin-bottom: 7px;
+  margin-top: 7px;
+}
+
+.remark-slide-content.dense p,
+.remark-slide-content.dense ul,
+.remark-slide-content.dense ol,
+.remark-slide-content.agenda p,
+.remark-slide-content.agenda ul {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.remark-slide table,
+.remark-slide table thead,
+.remark-slide table tbody,
+.remark-slide table tfoot,
+.remark-slide table tr,
+.remark-slide table th,
+.remark-slide table td,
+.remark-slide table.dataTable tbody,
+.remark-slide table.dataTable.display tbody tr.odd,
+.remark-slide table.dataTable.display tbody tr.even,
+.remark-slide table.dataTable.hover tbody tr:hover,
+.remark-slide table.dataTable.display tbody tr:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+}

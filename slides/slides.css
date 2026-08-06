@@ -111,16 +111,56 @@ h1, h2, h3 {
 }
 .larger { font-size: 200% }
 .large { font-size: 150% }
-.midi { font-size: 85% }
-.small { font-size: 70% }
-.xsmall { font-size: 65% }
-.tiny { font-size: 50%;
+.midi { font-size: 30px }
+.small { font-size: 30px }
+.xsmall { font-size: 30px }
+.tiny { font-size: 30px;
   padding: 2rem 64px 1rem 64px; }
 
-.midi .remark-code { font-size: 85%; }
-.small .remark-code { font-size: 70%; }
-.xsmall .remark-code { font-size: 65%; }
-.tiny .remark-code { font-size: 50%; }
+/* Content-rich slides: preserve the fixed footer's clear area. */
+.remark-slide-content.compact {
+  font-size: 30px;
+}
+.remark-slide-content.compact .large {
+  font-size: 115%;
+}
+.remark-slide-content.compact p,
+.remark-slide-content.compact ul,
+.remark-slide-content.compact ol {
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+.remark-slide-content.compact table {
+  font-size: 30px;
+}
+.remark-slide-content.dense {
+  font-size: 30px;
+}
+.remark-slide-content.dense .large {
+  font-size: 110%;
+}
+.remark-slide-content.dense p,
+.remark-slide-content.dense ul,
+.remark-slide-content.dense ol {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.remark-slide-content.dense .question,
+.remark-slide-content.dense .your-turn,
+.remark-slide-content.dense .tip {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.remark-slide-content.agenda p,
+.remark-slide-content.agenda ul {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.midi .remark-code { font-size: 30px; }
+.small .remark-code { font-size: 30px; }
+.xsmall .remark-code { font-size: 30px; }
+.tiny .remark-code { font-size: 30px; }
 
 /* Huge numbers */
 
@@ -192,17 +232,16 @@ div.my-footer {
     width: 90%;
 }
 div.my-footer span {
-    font-size: 20px;
+    font-size: 30px;
     position: absolute;
     bottom: 10px;
     left: 30px;
     color: #8A8A8A;
 }
 div.my-footer a {
-    font-size: 20px;
+    font-size: 30px;
     color: #8A8A8A;
 }
-
 
 /* Custom boxes */
 
@@ -251,19 +290,6 @@ img, video, iframe {
   border: 1px solid #ddd;
 }
 
-/* Logo */
-.remark-slide-content:after {
-    content: "";
-    position: absolute;
-    bottom: 5px;
-    right: 1100px;
-    height: 60px;
-    width: 81px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url("dsbox-hex.png");
-}
-
 /* Media */
 @page { margin: 0; }
 @media print {
@@ -279,4 +305,21 @@ img, video, iframe {
 /* Datatable headers */
 div.datatables {
     color: #fff;
+}
+
+/* Tables use the slide background uniformly, without zebra striping. */
+.remark-slide table,
+.remark-slide table thead,
+.remark-slide table tbody,
+.remark-slide table tfoot,
+.remark-slide table tr,
+.remark-slide table th,
+.remark-slide table td,
+.remark-slide table.dataTable tbody,
+.remark-slide table.dataTable.display tbody tr.odd,
+.remark-slide table.dataTable.display tbody tr.even,
+.remark-slide table.dataTable.hover tbody tr:hover,
+.remark-slide table.dataTable.display tbody tr:hover {
+  background: transparent !important;
+  background-color: transparent !important;
 }

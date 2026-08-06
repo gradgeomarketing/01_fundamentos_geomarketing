@@ -1,67 +1,59 @@
-# Atividade em Sala — Unidade 1
-## "Mapeando o Entorno do CEFET"
+# Atividade em sala — Mapeando o entorno do CEFET
 
-**Unidade:** 1 – Fundamentos de Geomarketing  
-**Encontro:** 1 | **Duração:** 50 min | **Grupos:** 3–4 estudantes
+**Unidade:** 1 — Fundamentos de Geomarketing  
+**Encontro:** 1  
+**Duração:** 40 minutos  
+**Organização:** grupos de 3 ou 4 estudantes
 
----
+## Situação
+
+Uma rede de farmácias considera instalar uma unidade próxima ao Campus Nova
+Gameleira do CEFET-MG. Antes de recomendar qualquer endereço, a equipe precisa
+formular boas perguntas e reconhecer os limites de uma primeira exploração.
 
 ## Objetivo
-Realizar a primeira extração de dados espaciais via OpenStreetMap e identificar padrões de distribuição de estabelecimentos comerciais.
 
----
+Produzir o primeiro mapa no QGIS e descrever padrões observáveis sem confundir
+ausência de registro no OpenStreetMap com ausência real de estabelecimentos.
 
-## Roteiro
+## Instruções
 
-### Parte A — Extração de dados (20 min)
+Siga o roteiro
+[`../praticas_qgis/01_primeiro_mapa_osm.md`](../praticas_qgis/01_primeiro_mapa_osm.md)
+até concluir a consulta QuickOSM e a composição do mapa.
 
-1. Acessar [overpass-turbo.eu](https://overpass-turbo.eu)
-2. Executar a query:
-```
-[out:json][timeout:25];
-area["name"="Belo Horizonte"]->.bh;
-node["amenity"="pharmacy"](area.bh);
-out body;
-```
-3. Clicar em **Run** e aguardar
-4. Exportar: *Export → GeoJSON → Download*
-5. Abrir no QGIS: *Camada → Adicionar Camada Vetorial → Selecionar arquivo GeoJSON*
+Em seguida, responda:
 
-### Parte B — Análise (20 min)
-
-Responda com base no mapa gerado:
-1. Qual região/bairro concentra mais farmácias?
-2. Existe alguma área visivelmente sem cobertura?
-3. Que fatores (renda, hospitais, fluxo de pessoas) poderiam explicar esse padrão?
-4. Os dados do OSM parecem completos? Justifique.
-
-### Parte C — Apresentação (10 min)
-
-Cada grupo apresenta 1 achado principal (máximo 2 minutos).
-
----
+1. Quantas feições de farmácia foram retornadas no recorte utilizado?
+2. Onde há concentração aparente em relação ao campus?
+3. Onde há vazios aparentes?
+4. Cite duas explicações concorrentes para um vazio observado.
+5. Quais três variáveis adicionais seriam necessárias para avaliar potencial de
+   mercado?
+6. Qual é a principal limitação da análise realizada?
 
 ## Entregável
 
-- Print do mapa gerado no QGIS
-- 3 observações escritas sobre os padrões encontrados
+Envie um único arquivo PDF ou uma página no ambiente da disciplina contendo:
 
----
+- mapa exportado pelo QGIS;
+- identificação dos integrantes;
+- respostas às seis perguntas;
+- uma frase de recomendação provisória iniciada por:
+  **“Com os dados disponíveis, ainda não é possível concluir…, mas o mapa
+  sugere investigar…”**
 
-## Gabarito Esperado
+## Checklist
 
-**Padrão de distribuição:**
-- Alta concentração: Centro, Savassi, Funcionários, Lourdes (alta renda + fluxo)
-- Menor densidade: Venda Nova, Barreiro, Ribeirão das Neves
-- Clusters em torno de hospitais: Hospital das Clínicas, Biocor, Santa Casa
+- [ ] O mapa mostra o Campus Nova Gameleira.
+- [ ] O mapa apresenta título, legenda, escala e fonte.
+- [ ] O recorte espacial foi informado.
+- [ ] As respostas distinguem observação, hipótese e conclusão.
+- [ ] A limitação dos dados OSM foi explicitada.
 
-**Limitações do OSM:**
-- Cobertura estimada: ~65-75% das farmácias reais
-- Periferia tende a ser subrepresentada
-- Dados podem estar desatualizados
+## Fontes
 
----
+- CEFET-MG, endereço do Campus Nova Gameleira.
+- OpenStreetMap e Nominatim, sob ODbL 1.0.
+- QuickOSM, plugin utilizado para consulta à API Overpass.
 
-## Recursos necessários
-- Computador com QGIS e acesso à internet
-- Conta/acesso ao [overpass-turbo.eu](https://overpass-turbo.eu)

@@ -1,0 +1,49 @@
+/* Interactive enlargement for figures inside the presentation. */
+.remark-slide-content img.zoomable-figure {
+  cursor: zoom-in;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.remark-slide-content img.zoomable-figure:hover,
+.remark-slide-content img.zoomable-figure:focus-visible {
+  filter: brightness(0.94);
+  outline: 3px solid #a09e1f;
+  outline-offset: 4px;
+}
+
+.image-zoom-overlay {
+  align-items: center;
+  background: rgba(17, 35, 33, 0.94);
+  display: none;
+  inset: 0;
+  justify-content: center;
+  padding: 52px;
+  position: fixed;
+  z-index: 100000;
+}
+
+.image-zoom-overlay.is-open {
+  display: flex;
+}
+
+.image-zoom-preview {
+  background: #ffffff;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  max-height: calc(100vh - 104px);
+  max-width: calc(100vw - 104px);
+  object-fit: contain;
+}
+
+.image-zoom-close {
+  background: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  color: #ffffff;
+  cursor: pointer;
+  font: 700 36px/42px sans-serif;
+  height: 46px;
+  position: fixed;
+  right: 24px;
+  top: 20px;
+  width: 46px;
+}

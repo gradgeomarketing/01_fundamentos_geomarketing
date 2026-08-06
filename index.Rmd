@@ -7,7 +7,9 @@ date: "Agosto 2026"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: ["default", "xaringan-themer.css", "slides.css"]
+    css: ["default", "xaringan-themer.css", "slides.css", "course-overrides.css", "zoom.css"]
+    includes:
+      after_body: zoom.html
     nature:
       ratio: "16:9"
       highlightLines: true
@@ -23,6 +25,40 @@ output:
 ```{r child = "setup.Rmd"}
 
 ```
+
+<style>
+.remark-slide-content:after {
+  content: none !important;
+  display: none !important;
+  background-image: none !important;
+}
+.remark-slide-content.compact { font-size: 30px !important; }
+.remark-slide-content.compact .large { font-size: 115% !important; }
+.remark-slide-content.dense { font-size: 30px !important; }
+.remark-slide-content.dense .large { font-size: 110% !important; }
+.remark-slide-content .midi,
+.remark-slide-content .small,
+.remark-slide-content .xsmall,
+.remark-slide-content .tiny,
+.remark-slide-content small,
+.remark-slide-content pre code,
+.remark-slide-content .remark-code,
+.remark-slide-content .remark-inline-code,
+.remark-slide-content .footnote,
+.remark-slide-content .my-footer span,
+.remark-slide-content .my-footer a {
+  font-size: 30px !important;
+}
+.remark-slide-content.compact table,
+.remark-slide-content.dense table {
+  font-size: 30px !important;
+}
+.remark-slide-content.agenda p,
+.remark-slide-content.agenda ul {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+</style>
 
 ```{r xaringan-tile-view, echo=FALSE}
 xaringanExtra::use_tile_view()
@@ -74,29 +110,37 @@ class: center, middle
 
 ---
 
-## Agenda — Unidade 1 (4h)
+class: agenda
+
+## Agenda — Unidade 1 (4 horas-aula)
 
 .pull-left[
-**Parte 1 (2h)**
+.small[
+**Compreender**
 - Conceito e evolução do geomarketing
 - Relação com disciplinas afins
 - O espaço como variável estratégica
 - Principais aplicações
-- Fundamentos de cartografia e representação geográfica
 
-**Parte 2 (2h)**
-- Fontes de dados introdutórias
-- Demonstração: QGIS — primeiros passos
-- Atividade prática em sala
+**Representar**
+- Pensamento espacial
+- Datum, coordenadas e projeções
+- Vetor, raster e formatos
+
+**Explorar no QGIS**
+- Primeiro projeto
+- OpenStreetMap com QuickOSM
+- Mapa e leitura crítica
+]
 ]
 
 .pull-right[
-<iframe width="100%" height="320" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-  src="https://www.openstreetmap.org/export/embed.html?bbox=-43.9465%2C-19.9308%2C-43.9265%2C-19.9108&amp;layer=mapnik&amp;marker=-19.9208%2C-43.9365"
+<iframe width="100%" height="220" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+  src="https://www.openstreetmap.org/export/embed.html?bbox=-44.0093%2C-19.9492%2C-43.9893%2C-19.9292&amp;layer=mapnik&amp;marker=-19.9391867%2C-43.9992587"
   style="border:1px solid #ccc">
 </iframe>
 <br>
-<small>Localização: CEFET-MG – Campus II (Belo Horizonte)</small>
+<small>CEFET-MG — Campus Nova Gameleira</small>
 ]
 
 ---
@@ -156,42 +200,39 @@ Os **4 Ps** ganham dimensão espacial:
 ]
 
 .pull-right[
-**Relevância Espacial por P** (intensidade 1–5)
+**Perguntas que ganham localização**
 
-| P | Intensidade |
-|---|---|
-| Praça | ●●●●● (5) |
-| Preço | ●●●●○ (4) |
-| Produto | ●●●○○ (3) |
-| Promoção | ●●●○○ (3) |
+- Onde está o público prioritário?
+- Onde a oferta já está concentrada?
+- Até onde clientes aceitam se deslocar?
+- Quais territórios recebem comunicação?
+- Onde uma nova unidade complementa a rede?
 ]
 
 ---
+
+class: compact
 
 ## Aplicações por Setor
 
 .pull-left[
 **Varejo e Serviços**
 - Localização de lojas e franquias
-- Definição de área de cobertura de entrega
-- Análise de canibalização entre unidades
+- Cobertura de entrega e canibalização
 
 **Setor Público**
-- Planejamento de equipamentos de saúde e educação
-- Rotas de coleta e logística urbana
-- Zoneamento e uso do solo
+- Equipamentos de saúde e educação
+- Logística urbana, zoneamento e uso do solo
 ]
 
 .pull-right[
 **Organizações Sociais**
-- Mapeamento de vulnerabilidade social
-- Planejamento de campanhas comunitárias
-- Alocação de recursos em territórios prioritários
+- Vulnerabilidade e campanhas comunitárias
+- Recursos em territórios prioritários
 
 **Marketing Digital**
 - Geofencing e notificações por proximidade
-- Segmentação de anúncios por bairro/CEP
-- Análise de fluxo de clientes (footfall)
+- Anúncios por território e fluxo de clientes
 ]
 
 ---
@@ -201,6 +242,8 @@ Os **4 Ps** ganham dimensão espacial:
 .question[
 Como uma rede de farmácias decide *onde* abrir sua próxima loja em Belo Horizonte?
 ]
+
+--
 
 **Variáveis espaciais consideradas:**
 
@@ -223,6 +266,8 @@ Antes de tratar dados espaciais, precisamos entender **como o espaço é represe
 
 ---
 
+class: compact
+
 ## Pensamento Espacial
 
 .pull-left[
@@ -232,20 +277,33 @@ Antes de tratar dados espaciais, precisamos entender **como o espaço é represe
 
 — Waldo Tobler (1ª Lei da Geografia)
 
-**Pensar espacialmente** é:
-- Encontrar significado em forma, tamanho, orientação, localização, direção ou trajetória de objetos, processos e fenômenos
-- Encontrar significado na **localização relativa** de múltiplos objetos, processos e fenômenos
+.tip[
+Pensar espacialmente é interpretar **formas, trajetórias, localizações e relações de proximidade**.
+]
 ]
 
 .pull-right[
-![:scale 90%](../img/cartografia/pensamento_espacial.png)
+<img src="img/cartografia/pensamento_espacial.png" style="width:90%">
+]
 
-**Perguntas espaciais típicas:**
+---
+
+## Perguntas para a Análise Espacial
+
+.pull-left[
 - O que existe em uma determinada localização?
 - Onde posso encontrar um determinado objeto?
 - O que mudou ao longo do tempo?
+]
+
+.pull-right[
 - Qual o melhor caminho?
 - Como os objetos são distribuídos no espaço?
+- Quais lugares apresentam padrões semelhantes?
+]
+
+.tip[
+Cada pergunta exige uma combinação de **dados, escala, distância e método de análise**.
 ]
 
 ---
@@ -259,8 +317,7 @@ Antes de tratar dados espaciais, precisamos entender **como o espaço é represe
 ]
 
 .pull-right[
-![:scale 75%](../img/cartografia/gravidade_terra.png)
-![:scale 55%](../img/cartografia/geoide.png)
+<img src="img/cartografia/geoide.png" style="width:82%">
 ]
 
 ---
@@ -276,33 +333,38 @@ Ao girar em torno de seu eixo menor, uma **elipse** forma um volume achatado nos
 | `b` | semi-eixo menor |
 | `f` | achatamento = (a−b)/a |
 
-.tip[
-Cada país (ou grupo de países) adota o elipsoide de referência que melhor se aproxima do geoide na sua região.
-]
 ]
 
 .pull-right[
-![:scale 100%](../img/cartografia/elipsoi_1.png)
-![:scale 100%](../img/cartografia/elipsoide_2.png)
+<img src="img/cartografia/elipsoi_1.png" style="width:58%">
+
+.midi[
+.tip[
+**Elipsoides de referência** aproximam a Terra real por meio de parâmetros
+matemáticos.
+]
+]
 ]
 
 ---
 
+class: dense
+
 ## Sistemas Geodésicos e Datum
 
 .large[
-Um **sistema geodésico** permite estabelecer uma relação entre um ponto do terreno e um elipsoide de referência, elegendo o elipsoide que melhor se ajusta às características locais do geoide.
+Um **sistema geodésico** relaciona pontos do terreno a um elipsoide de referência.
 ]
 
-A posição desse elipsoide em relação à Terra, sua forma e tamanho constituem o **Datum Geodésico**: marco geodésico (horizontal ou vertical) usado como ponto de origem do sistema geodésico.
+O **datum geodésico** define a posição, a orientação e a origem desse sistema.
 
 .pull-left[
-- **Datum Vertical/Altimétrico:** referência para altitude (marco "zero")
-- **Datum Horizontal/Planimétrico:** referência para coordenadas planimétricas
+- **Vertical/altimétrico:** referência para altitude
+- **Horizontal/planimétrico:** referência para coordenadas
 ]
 
 .pull-right[
-![:scale 80%](../img/cartografia/datum.png)
+<img src="img/cartografia/datum.png" style="width:80%">
 ]
 
 ---
@@ -310,35 +372,44 @@ A posição desse elipsoide em relação à Terra, sua forma e tamanho constitue
 ## Datum Geocêntrico × Topocêntrico
 
 .pull-left[
-![:scale 100%](../img/cartografia/geoide_geocentrico.png)
+<img src="img/cartografia/geoide_geocentrico.png" style="width:58%">
 ]
 
 .pull-right[
-![:scale 100%](../img/cartografia/geoide_topocentrico.png)
+<img src="img/cartografia/geoide_topocentrico.png" style="width:58%">
 ]
 
+.midi[
 .tip[
-**SIRGAS 2000** — Sistema de Referência Geocêntrico para as Américas: datum global, geocêntrico (EPSG:4674) — o padrão oficial do Brasil, usado em todas as camadas deste curso.
-
-**SAD-69** — Sistema Geodésico Sul-Americano 1969: datum local, topocêntrico (ainda encontrado em bases antigas).
+**Curso:** EPSG:4674 para coordenadas geográficas e EPSG:31983 para análises
+métricas em Belo Horizonte. O SAD-69 ainda aparece em bases antigas.
+]
 ]
 
 ---
 
-## Sistemas de Coordenadas Geográficas
+class: dense
+
+## Coordenadas Geográficas
 
 .large[
-Necessários para expressar a posição de pontos sobre uma superfície curvilínea (elipsoide/esfera): cada ponto é localizado na interseção de um **meridiano** e um **paralelo**.
+Cada ponto resulta da interseção entre um **meridiano** e um **paralelo**.
 ]
 
 .pull-left[
-![:scale 90%](../img/cartografia/graus.png)
+<img src="img/cartografia/graus.png" style="width:90%">
 ]
 
 .pull-right[
-**Meridianos** — semicírculos gerados pela interseção de planos verticais (contendo o eixo de rotação) com a superfície terrestre. O meridiano de origem é **Greenwich**: a leste, valores de 0° a +180°; a oeste, de 0° a −180°.
+**Meridianos**
 
-**Paralelos** — círculos cujo plano é perpendicular ao eixo dos polos. O **Equador** (0°) divide a Terra em hemisférios Norte/Sul; os polos são ±90°.
+- Referência: **Greenwich**
+- Longitude: −180° a +180°
+
+**Paralelos**
+
+- Referência: **Equador**
+- Latitude: −90° a +90°
 ]
 
 ---
@@ -356,10 +427,12 @@ Distância angular entre o lugar e o meridiano de origem, contada sobre um plano
 ]
 
 .pull-right[
-![:scale 90%](../img/cartografia/lat_long.png)
+<img src="img/cartografia/lat_long.png" style="width:90%">
 ]
 
 ---
+
+class: compact
 
 ## Projeções Cartográficas
 
@@ -370,7 +443,7 @@ Para confeccionar um mapa, cada ponto da superfície terrestre precisa correspon
 A projeção cartográfica transforma uma posição na Terra (latitude/longitude) em uma posição em coordenadas cartesianas/planas (x, y).
 
 .pull-left[
-![:scale 70%](../img/cartografia/projecao.png)
+<img src="img/cartografia/projecao.png" style="width:58%">
 ]
 
 .pull-right[
@@ -384,8 +457,8 @@ Coordenadas planas servem para representar **pequenas porções** da superfície
 ## Toda Projeção Deforma Algo
 
 .pull-left[
-![:scale 100%](../img/cartografia/laranja1.png)
-![:scale 100%](../img/cartografia/laranja2.png)
+<img src="img/cartografia/laranja1.png" style="width:48%">
+<img src="img/cartografia/laranja2.png" style="width:48%">
 ]
 
 .pull-right[
@@ -395,7 +468,7 @@ Representar uma superfície curva (a Terra) em um plano sempre envolve deformaç
 **Não existe projeção ideal.** Toda projeção sacrifica alguma propriedade — ângulo, área ou distância.
 ]
 
-![:scale 90%](../img/cartografia/erro_proj1.png)
+<img src="img/cartografia/erro_proj1.png" style="width:64%">
 ]
 
 ---
@@ -409,7 +482,7 @@ Representar uma superfície curva (a Terra) em um plano sempre envolve deformaç
 | **Equivalente** | Áreas | Formas |
 | **Afilática** | Nenhuma propriedade — busca reduzir distorções em geral | — |
 
-![:scale 45%](../img/cartografia/proj.jpg)
+<img src="img/cartografia/proj.jpg" style="width:22%">
 
 ---
 
@@ -427,13 +500,15 @@ Representar uma superfície curva (a Terra) em um plano sempre envolve deformaç
 **Quanto ao tipo de contato:**
 
 Tangente
-![:scale 90%](../img/cartografia/planotangente.png)
+<img src="img/cartografia/planotangente.png" style="width:90%">
 
 Secante
-![:scale 90%](../img/cartografia/planosecante.png)
+<img src="img/cartografia/planosecante.png" style="width:90%">
 ]
 
 ---
+
+class: dense
 
 ## Projeção UTM
 
@@ -442,7 +517,7 @@ Secante
 ]
 
 .pull-left[
-![:scale 90%](../img/cartografia/mercartor.png)
+<img src="img/cartografia/mercartor.png" style="width:72%">
 ]
 
 .pull-right[
@@ -458,34 +533,36 @@ Secante
 ## Projeção UTM — Fusos
 
 .pull-left[
-![:scale 100%](../img/cartografia/utm.png)
-![:scale 100%](../img/cartografia/utm_br.png)
+**O mundo é dividido em 60 fusos de 6°**
+
+<img src="img/cartografia/utm.png" style="width:88%">
 ]
 
 .pull-right[
-![:scale 100%](../img/cartografia/utm1.png)
-![:scale 100%](../img/cartografia/utm2.png)
+**Brasil: fusos 18 a 25; BH: fuso 23S**
+
+<img src="img/cartografia/utm_br.png" style="width:88%">
 ]
 
 ---
 
 ## Projeção UTM — Exemplo de Sobreposição de Fusos
 
-![:scale 55%](../img/cartografia/utm5.png)
+<img src="img/cartografia/utm5.png" style="width:55%">
 
 ---
 
 ## O que é um SIG (GIS)?
 
-.large[
 **SIG** = Sistema de Informação Geográfica (*Geographic Information System*): conjunto de ferramentas para coleta e tratamento de informações espaciais, geração de mapas, relatórios e arquivos digitais — com recursos de armazenagem, gerenciamento, manipulação e análise.
-]
 
 .tip[
 **Geoprocessamento** é um conceito mais amplo: qualquer tipo de processamento de dados georreferenciados. Um SIG processa dados gráficos e alfanuméricos, com ferramentas de análise espacial e modelagem de superfícies.
 ]
 
 ---
+
+class: dense
 
 ## Definições de GIS
 
@@ -521,13 +598,17 @@ Secante
 
 ---
 
+class: compact
+
 ## Dados Espaciais: Vetor × Raster
 
 .large[
-Dados espaciais podem apresentar diferentes formatos e estruturas. Neste curso, usamos principalmente o formato **shapefile** (ESRI) para dados vetoriais.
+Dados espaciais podem apresentar diferentes formatos e estruturas. Neste
+curso, o **GeoPackage** será o formato preferencial para resultados vetoriais;
+shapefiles serão tratados como formato de intercâmbio ainda frequente.
 ]
 
-![:scale 70%](../img/cartografia/vector-vs-raster.png)
+<img src="img/cartografia/vector-vs-raster.png" style="width:46%">
 
 ---
 
@@ -548,28 +629,32 @@ Um shapefile é, na prática, um **conjunto de arquivos** — todos precisam est
 
 ---
 
+class: dense
+
 ## Distâncias
 
 .large[
-Diferentes conceitos de distância representam a **impedância** entre funções/atividades urbanas (conectividade):
+Distância traduz a **impedância** entre atividades e lugares:
 ]
 
 | Medida | Fórmula | Interpretação |
 |---|---|---|
 | **Euclidiana** | √((x₁−x₂)² + (y₁−y₂)²) | Segmento de reta entre dois pontos ("linha reta") |
-| **Manhattan** | \|x₁−x₂\| + \|y₁−y₂\| | Segmentos vertical + horizontal (rota urbana em grade) |
-| **Em rede** | (calculada sobre o grafo viário) | Deslocamento real no ambiente construído — mais próxima da realidade, porém mais exigente computacionalmente |
+| **Manhattan** | &#124;x₁−x₂&#124; + &#124;y₁−y₂&#124; | Segmentos vertical + horizontal (rota urbana em grade) |
+| **Em rede** | Calculada sobre o grafo viário | Deslocamento real — mais fiel e mais exigente |
 
 .tip[
-Vamos calcular distâncias em rede no QGIS com o **ORS Tools** — ver Unidade 7 (Análise Espacial).
+No QGIS, calcularemos distâncias em rede com o **ORS Tools** (Unidade 7).
 ]
 
 ---
 
+class: dense
+
 ## Tipos de Representação Cartográfica
 
 .large[
-O mesmo dado espacial pode ser representado de formas diferentes — cada uma revela um padrão distinto:
+Cada representação enfatiza um padrão espacial diferente:
 ]
 
 | Representação | Ideia central |
@@ -581,11 +666,9 @@ O mesmo dado espacial pode ser representado de formas diferentes — cada uma re
 | **Representação de fluxos** | Linhas mostram movimento entre origem e destino |
 | **Cartograma** | Área é deformada proporcionalmente a uma variável |
 
-.tip[
-Vamos praticar cada um desses tipos no QGIS ao longo do curso — coropléticos e proporcionais já na Unidade 4, o conjunto completo na Unidade 6 (Cartografia Temática).
-]
-
 ---
+
+class: dense
 
 ## Fontes de Dados — Introdução
 
@@ -600,11 +683,6 @@ Vamos praticar cada um desses tipos no QGIS ao longo do curso — coropléticos 
 6. Repetir o processo para: municípios de MG, setores censitários de Belo Horizonte e regiões metropolitanas (disponíveis na mesma página do IBGE)
 ]
 
-.tip[
-**IBGE — Malhas Territoriais:** portal oficial com shapefiles/GeoPackages prontos para uso, atualizados a cada Censo — sem necessidade de código.
-Site: [ibge.gov.br/geociencias](https://www.ibge.gov.br/geociencias/organizacao-do-territorio/malhas-territoriais.html)
-]
-
 ---
 
 ## Fontes de Dados Secundários — Web
@@ -613,53 +691,62 @@ Site: [ibge.gov.br/geociencias](https://www.ibge.gov.br/geociencias/organizacao-
 |-------|-----|-------|
 | IBGE Malhas | [ibge.gov.br/geociencias](https://www.ibge.gov.br/geociencias/organizacao-do-territorio/malhas-territoriais.html) | Shapefiles/GeoPackage municipais/setoriais |
 | IPEA Data | [ipeadata.gov.br](http://www.ipeadata.gov.br) | Indicadores socioeconômicos |
-| OpenStreetMap | [overpass-turbo.eu](https://overpass-turbo.eu) | POI, vias, edifícios |
+| OpenStreetMap | [quickosm.github.io](https://quickosm.github.io/QuickOSM/) | POI, vias e edifícios consultados no QGIS |
 | dados.gov.br | [dados.gov.br](https://dados.gov.br) | Dados abertos federais |
 | Google Places API | [developers.google.com](https://developers.google.com/maps/documentation/places) | Estabelecimentos comerciais |
-| CNAE/RAIS | [portaldatransparencia.gov.br](https://portaldatransparencia.gov.br) | Empresas por atividade |
+| RAIS/PDET | [pdet.mte.gov.br](https://pdet.mte.gov.br) | Emprego formal e estabelecimentos |
 
 ---
 
-## QGIS — Primeiros Passos
+class: compact
 
-**Objetivo:** Instalar, abrir um shapefile e visualizar municípios de MG.
+## QGIS — Preparar o Projeto
+
+**Objetivo:** criar um projeto, localizar o campus e consultar dados OSM.
 
 .your-turn[
-**Passo a passo (QGIS 3.x):**
+**Etapa 1 — Projeto e referência espacial (QGIS 3.44 LTR):**
 
-1. Baixar QGIS em [qgis.org/download](https://qgis.org/download/) (versão LTR)
-2. Baixar a malha municipal de MG no site do IBGE (Malhas Territoriais → Municípios → Minas Gerais, formato shapefile)
-3. No QGIS: *Camada → Adicionar Camada → Adicionar Camada Vetorial…* → selecionar o `.shp` baixado
-4. Explorar tabela de atributos: botão direito na camada → *Abrir tabela de atributos*
-5. Colorir por mesorregião: botão direito → *Propriedades → Simbologia → Categorizado* → Campo: `nome_meso` (ou equivalente) → *Classificar*
-6. Converter para GeoPackage (formato recomendado para o restante do curso): botão direito na camada → *Exportar → Salvar Feições Como…* → Formato: **GeoPackage** → salvar como `dados/municipios_mg.gpkg`
+1. Configurar **caminhos relativos** e salvar `outputs/encontro_01.qgz`
+2. Adicionar **XYZ Tiles → OpenStreetMap** e abrir `dados/02_processados/cefet_campus_nova_gameleira.geojson`
+3. Aproximar à camada, usar escala aproximada `1:35.000` e explorar atributos e SRC
 ]
 
 ---
 
+class: compact
+
+## QGIS — Consultar e Entregar
+
+.your-turn[
+**Etapa 2 — Dados OSM e produto cartográfico:**
+
+**4.** No **QuickOSM**, consultar `amenity = pharmacy` em **Canvas extent**  
+**5.** Registrar pontos e polígonos retornados e persistir as camadas em `outputs/farmacias_entorno_cefet.gpkg`  
+**6.** No Layout de Impressão, exportar `outputs/mapa_entorno_cefet.png` com título, legenda, escala e atribuição ao OSM
+]
+
+---
+
+class: compact
+
 ## Atividade Prática — Encontro 1
 
 .your-turn[
-**"Mapeando o entorno do CEFET"** *(50 minutos em grupos de 3–4)*
+**"Mapeando o entorno do CEFET"** *(40 minutos em grupos de 3–4)*
 
-**Parte A — Coleta (20 min):**
-Acesse [overpass-turbo.eu](https://overpass-turbo.eu) e use a query abaixo para
-extrair farmácias em Belo Horizonte:
+1. Siga o roteiro para preparar o projeto, o recorte e a consulta QuickOSM
+2. Registre separadamente os resultados pontuais e poligonais, evitando dupla contagem
+3. Salve as camadas no GeoPackage e exporte o mapa PNG indicado no roteiro
+4. Descreva contagens, concentrações e vazios aparentes
+5. Responda às seis perguntas da atividade discente
+6. Formule a recomendação **provisória**, acompanhada das limitações
 
-```
-[out:json][timeout:25];
-area["name"="Belo Horizonte"]->.bh;
-node["amenity"="pharmacy"](area.bh);
-out body;
-```
-Exportar como GeoJSON → abrir no QGIS.
+Roteiro completo:
+`praticas_qgis/01_primeiro_mapa_osm.md`
 
-**Parte B — Análise (20 min):**
-- Qual bairro concentra mais farmácias?
-- Existe alguma área sem cobertura?
-- O que explica esse padrão?
-
-**Parte C — Apresentação (10 min):** Cada grupo apresenta 1 achado.
+Entregável:
+`atividades_em_sala/atividade_01_mapeando_entorno_cefet.md`
 ]
 
 ---
@@ -667,31 +754,32 @@ Exportar como GeoJSON → abrir no QGIS.
 ## Resolução da Atividade
 
 .pull-left[
-**O que esperar encontrar:**
-- Concentração no Centro e Savassi (alta renda + fluxo)
-- Menor densidade em Venda Nova, Barreiro
-- Clusters próximos a hospitais
+**Não existe contagem fixa**
 
-**Discussão:**
-- Dados do OSM são completos? Confiáveis?
-- O que mais precisaríamos saber?
-- Como a renda local explica a distribuição?
+O resultado depende:
+- da data da consulta
+- da extensão visível do mapa
+- das feições registradas no OSM
+- da classificação usada pelos colaboradores
 ]
 
 .pull-right[
-**Distribuição esperada — Farmácias em BH**
+**A leitura deve separar**
 
-| Região | Concentração |
+| Nível | Exemplo |
 |---|---|
-| Centro / Savassi / Funcionários | Alta |
-| Leste (próx. hospitais) | Média-Alta |
-| Norte (Venda Nova) | Baixa |
-| Barreiro | Baixa |
+| Observação | há pontos/vazios no recorte |
+| Hipótese | vias e fluxos podem influenciar |
+| Conclusão | exige demanda, custos e concorrência validada |
 
-*(Espaço reservado para o print do mapa gerado no QGIS pela turma.)*
+.question[
+Ausência de ponto no OSM significa ausência de farmácia?
+]
 ]
 
 ---
+
+class: dense
 
 ## Conceitos-chave da Unidade 1
 
@@ -704,9 +792,11 @@ Exportar como GeoJSON → abrir no QGIS.
 
 ✅ Dados **secundários públicos** (IBGE, OSM, IPEA) são ponto de partida
 
-✅ **QGIS** é a principal ferramenta open-source para análise espacial
+✅ **QGIS** será o ambiente de análise espacial em todos os encontros
 
 ✅ Decisões de localização requerem **múltiplas variáveis** combinadas
+
+✅ Um mapa exploratório sustenta **perguntas**, não uma decisão final
 ]
 
 ---

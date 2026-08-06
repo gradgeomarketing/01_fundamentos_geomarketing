@@ -32,7 +32,7 @@
   --code-font-is-google: 1;
   --base-font-size: 20px;
   --text-font-size: 1.5rem;
-  --code-font-size: 20px;
+  --code-font-size: 30px;
   --code-inline-font-size: 1em;
   --header-h1-font-size: 3.5rem;
   --header-h2-font-size: 3rem;
@@ -236,7 +236,7 @@ table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
 
 
 pre code {
-  font-size:          18px !important;
+  font-size:          30px !important;
 }
 
 
@@ -505,17 +505,11 @@ img, video, iframe {
   border: 1px solid #ddd;
 }
 
-/* Logo */
+/* The original theme expected a local logo asset that is not part of this
+   course. Keep the pseudo-element disabled to avoid a broken-image request. */
 .remark-slide-content:after {
-    content: "";
-    position: absolute;
-    bottom: 5px;
-    right: 1100px;
-    height: 60px;
-    width: 81px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url("dsbox-hex.png");
+    content: none;
+    display: none;
 }
 
 /* Media */

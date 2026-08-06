@@ -2,9 +2,6 @@
 # R options
 options(
   htmltools.dir.version = FALSE,
-  dplyr.print_min = 6,
-  dplyr.print_max = 6,
-  tibble.width = 65,
   width = 65
   )
 # figure height, width, dpi
@@ -15,21 +12,10 @@ knitr::opts_chunk$set(echo = TRUE,
                       fig.align = "center",
                       dpi = 300,
                       message = FALSE)
-# ggplot2
-ggplot2::theme_set(ggplot2::theme_gray(base_size = 16))
 # set seed
 set.seed(1234)
 # fontawesome
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
-# magick
-dev.off <- function(){
-  invisible(grDevices::dev.off())
-}
-# countdown
-library(countdown)
-# conflicted
-library(conflicted)
-conflict_prefer("filter", "dplyr")
 # xaringanExtra
 library(xaringanExtra)
 xaringanExtra::use_panelset()
@@ -63,6 +49,3 @@ layout: true
 <a href="https://places.education" target="_blank">https://places.education</a>
 </span>
 </div>
-
----
-

@@ -1,0 +1,68 @@
+<div class="image-zoom-overlay" id="image-zoom-overlay" aria-hidden="true">
+  <button class="image-zoom-close" type="button" aria-label="Fechar imagem ampliada">×</button>
+  <img class="image-zoom-preview" alt="">
+</div>
+
+<script>
+(function () {
+  var overlay = document.getElementById("image-zoom-overlay");
+  var preview = overlay.querySelector(".image-zoom-preview");
+  var closeButton = overlay.querySelector(".image-zoom-close");
+
+  function enhanceImages() {
+    document.querySelectorAll(".remark-slide-content img").forEach(function (image) {
+      image.classList.add("zoomable-figure");
+      image.setAttribute("tabindex", "0");
+      image.setAttribute("role", "button");
+      image.setAttribute("aria-label", image.alt ? "Ampliar figura: " + image.alt : "Ampliar figura");
+      image.setAttribute("title", "Clique para ampliar");
+    });
+  }
+
+  function openZoom(image) {
+    preview.src = image.currentSrc || image.src;
+    preview.alt = image.alt || "Figura ampliada";
+    overlay.classList.add("is-open");
+    overlay.setAttribute("aria-hidden", "false");
+    closeButton.focus();
+  }
+
+  function closeZoom() {
+    overlay.classList.remove("is-open");
+    overlay.setAttribute("aria-hidden", "true");
+    preview.removeAttribute("src");
+  }
+
+  document.addEventListener("click", function (event) {
+    var image = event.target.closest(".remark-slide-content img");
+    if (image) {
+      event.preventDefault();
+      event.stopPropagation();
+      openZoom(image);
+      return;
+    }
+    if (event.target === overlay || event.target === closeButton) {
+      event.preventDefault();
+      event.stopPropagation();
+      closeZoom();
+    }
+  }, true);
+
+  document.addEventListener("keydown", function (event) {
+    if ((event.key === "Enter" || event.key === " ") &&
+        event.target.matches(".remark-slide-content img")) {
+      event.preventDefault();
+      event.stopPropagation();
+      openZoom(event.target);
+    } else if (event.key === "Escape" && overlay.classList.contains("is-open")) {
+      event.preventDefault();
+      event.stopPropagation();
+      closeZoom();
+    }
+  }, true);
+
+  window.addEventListener("load", function () {
+    window.setTimeout(enhanceImages, 0);
+  });
+})();
+</script>

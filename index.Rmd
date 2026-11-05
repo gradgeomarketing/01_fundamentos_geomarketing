@@ -7,7 +7,7 @@ date: "Agosto 2026"
 output:
   xaringan::moon_reader:
     lib_dir: libs
-    css: ["default", "xaringan-themer.css", "slides.css", "course-overrides.css", "zoom.css"]
+    css: ["default", "xaringan-themer.css", "slides.css", "course-overrides.css", "zoom.css", "ufcimg-slides.css"]
     includes:
       after_body: zoom.html
     nature:
